@@ -1,10 +1,11 @@
-FROM golang:1.14.1-alpine3.11
+FROM golang:1.14.1-buster
 
 WORKDIR /code
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
+RUN sed -i "s/deb.debian.org/mirrors.aliyun.com/" /etc/apt/sources.list
+RUN sed -i "s/security.debian.org/mirrors.aliyun.com/" /etc/apt/sources.list
 
-RUN apk update && apk add gcc g++ librdkafka-dev pkgconf
+RUN apt-get update && apt-get install -y librdkafka-dev
 
 COPY . .
 
