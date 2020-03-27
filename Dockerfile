@@ -4,7 +4,7 @@ WORKDIR /code
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
 
-RUN apk update && apk add librdkafka-dev pkgconf
+RUN apk update && apk add gcc librdkafka-dev pkgconf
 
 COPY . .
 
