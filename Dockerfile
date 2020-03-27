@@ -9,6 +9,8 @@ RUN apt update && apt install -y librdkafka-dev
 
 COPY . .
 
+ENV GOPROXY=https://goproxy.io
+
 RUN go build -o ./bin/filtercmpt ./cmd/filtercmpt/hello.go
 
 CMD ["/code/bin/filtercmpt"]
