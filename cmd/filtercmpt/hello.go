@@ -10,7 +10,7 @@ import (
 func main() {
 	consumer, err := kafka.NewConsumer(&kafka.ConfigMap{
 		"bootstrap.servers":    "kafka:9092",
-		"group.id":             "",
+		"group.id":             nil,
 		"default.topic.config": kafka.ConfigMap{"auto.offset.reset": "earliest"}})
 
 	if err != nil {
