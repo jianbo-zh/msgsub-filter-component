@@ -25,7 +25,7 @@ func main() {
 	}
 
 	for run == true {
-		ev := consumer.Poll(0)
+		ev := consumer.Poll(1000)
 		switch e := ev.(type) {
 		case *kafka.Message: // application-specific processing
 			fmt.Printf("%% Message on %s:\n%s\n", e.TopicPartition, string(e.Value))
